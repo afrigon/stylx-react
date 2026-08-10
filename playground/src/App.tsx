@@ -1,9 +1,13 @@
 import { useState } from "react"
 import {
     Button,
+    Card,
     colorRoles,
+    Container,
     Field,
     Role,
+    Separator,
+    Stack,
     Text,
     TextField,
     textVariants,
@@ -218,6 +222,36 @@ function App() {
                             <TextField placeholder="unavailable" disabled />
                         </Field>
                     </div>
+                </section>
+
+                <section style={{ marginTop: 32 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Layout</h2>
+                    <Container maxWidth={640} style={{ paddingInline: 0 }}>
+                        <Stack direction="row" gap="m" wrap>
+                            <Card style={{ flex: 1, minWidth: 220 }}>
+                                <Stack gap="s">
+                                    <Text variant="heading3" as="h3">
+                                        Card
+                                    </Text>
+                                    <Text variant="body">A surface with tokenized radius and shadow.</Text>
+                                    <Separator />
+                                    <Stack direction="row" gap="xs">
+                                        <Button emphasis="emphasis" role="information" scale="s">
+                                            Confirm
+                                        </Button>
+                                        <Button scale="s">Cancel</Button>
+                                    </Stack>
+                                </Stack>
+                            </Card>
+                            <Card style={{ flex: 1, minWidth: 220 }}>
+                                <Stack direction="row" gap="m" align="center">
+                                    <Text variant="body">Left</Text>
+                                    <Separator direction="vertical" size="emphasis" />
+                                    <Text variant="body">Right</Text>
+                                </Stack>
+                            </Card>
+                        </Stack>
+                    </Container>
                 </section>
             </div>
         </ThemeProvider>

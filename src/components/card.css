@@ -1,0 +1,7 @@
+.stylx-card {
+    background: var(--stylx-bg-default);
+    border-radius: var(--stylx-radius-double);
+    box-shadow:
+        0 1px 3px rgb(0 0 0 / 0.12),
+        0 1px 2px rgb(0 0 0 / 0.08);
+}
