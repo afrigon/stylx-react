@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "moduleDetection": "force",
+        "resolveJsonModule": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "strict": true,
+        "jsx": "react-jsx",
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "stylx-react": ["./src/index.ts"],
+            "stylx-react/styles.css": ["./src/styles.css"]
+        },
+        "types": ["vite/client", "node"]
+    },
+    "include": ["src", "playground", "eslint.config.ts", "prettier.config.ts", "tsup.config.ts", "vite.config.ts"]
+}
