@@ -1,1 +1,12 @@
-export const version = "0.1.0"
+export { ThemeProvider, useTheme } from "./theme/ThemeProvider"
+export type {
+    ColorScheme,
+    ColorContrast,
+    SchemePreference,
+    ContrastPreference,
+    ThemeProviderProps
+} from "./theme/ThemeProvider"
+export { Role } from "./theme/Role"
+export type { RoleProps } from "./theme/Role"
+export { colorRoles } from "./theme/roles"
+export type { ColorRoleName } from "./theme/roles"

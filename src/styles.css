@@ -1,4 +1,1 @@
-:root {
-    /* Design tokens (palette, semantic colors, roles, type, scales) are declared
-       here by the color and typography layers. */
-}
+@import "./tokens.css";
