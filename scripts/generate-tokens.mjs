@@ -91,6 +91,55 @@ const ROLES = {
     magic: role(id("purple", 5), id("purple", 0), id("purple", 6), id("purple", 1))
 }
 
+const FONTS = {
+    text: 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    code: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace'
+}
+
+const SPACING = {
+    xxxxs: 1,
+    xxxs: 2,
+    xxs: 4,
+    xs: 8,
+    s: 12,
+    m: 16,
+    l: 24,
+    xl: 32,
+    xxl: 40,
+    xxxl: 48,
+    xxxxl: 64,
+    xxxxxl: 80,
+    xxxxxxl: 96,
+    xxxxxxxl: 128
+}
+
+const RADIUS = {
+    default: "4px",
+    double: "8px",
+    full: "9999px"
+}
+
+const BORDER_WIDTH = {
+    default: 1,
+    emphasis: 2,
+    large: 4
+}
+
+const TYPE = {
+    "heading1": { size: 48, weight: 500, font: "text", lineHeight: 1.25 },
+    "heading2": { size: 32, weight: 500, font: "text", lineHeight: 1.25 },
+    "heading3": { size: 24, weight: 500, font: "text", lineHeight: 1.3 },
+    "subtitle": { size: 18, weight: 700, font: "text", lineHeight: 1.35 },
+    "body": { size: 16, weight: 400, font: "text", lineHeight: 1.5 },
+    "body-bold": { size: 16, weight: 700, font: "text", lineHeight: 1.5 },
+    "body-small": { size: 13, weight: 400, font: "text", lineHeight: 1.45 },
+    "body-small-bold": { size: 13, weight: 700, font: "text", lineHeight: 1.45 },
+    "code": { size: 15, weight: 400, font: "code", lineHeight: 1.5 },
+    "code-small": { size: 13, weight: 400, font: "code", lineHeight: 1.5 },
+    "overline": { size: 12, weight: 700, font: "text", lineHeight: 1.3, transform: "uppercase" },
+    "disclaimer": { size: 11, weight: 400, font: "text", lineHeight: 1.3 }
+}
+
 function resolve(value, variantKey) {
     if (value === TRANSPARENT) {
         return TRANSPARENT
@@ -141,8 +190,42 @@ function roleSelectionBlocks() {
     return blocks.join("\n\n")
 }
 
+function scalesBlock() {
+    const lines = [
+        `    --stylx-font-text: ${FONTS.text};`,
+        `    --stylx-font-code: ${FONTS.code};`,
+        ...Object.entries(SPACING).map(([name, value]) => `    --stylx-spacing-${name}: ${value}px;`),
+        ...Object.entries(RADIUS).map(([name, value]) => `    --stylx-radius-${name}: ${value};`),
+        ...Object.entries(BORDER_WIDTH).map(([name, value]) => `    --stylx-border-width-${name}: ${value}px;`),
+        ...Object.entries(TYPE).map(([name, style]) => `    --stylx-text-${name}-size: ${style.size}px;`)
+    ]
+
+    return `:root {\n${lines.join("\n")}\n}`
+}
+
+function typeClasses() {
+    const base = ".stylx-text {\n    margin: 0;\n}"
+
+    const classes = Object.entries(TYPE).map(([name, style]) => {
+        const lines = [
+            `    font-family: var(--stylx-font-${style.font});`,
+            `    font-size: var(--stylx-text-${name}-size);`,
+            `    font-weight: ${style.weight};`,
+            `    line-height: ${style.lineHeight};`
+        ]
+
+        if (style.transform) {
+            lines.push(`    text-transform: ${style.transform};`)
+        }
+
+        return `.stylx-text-${name} {\n${lines.join("\n")}\n}`
+    })
+
+    return [base, ...classes].join("\n\n")
+}
+
 function tokensCss() {
-    const blocks = [paletteBlock(), ...VARIANTS.map(themeBlock), roleSelectionBlocks()]
+    const blocks = [paletteBlock(), ...VARIANTS.map(themeBlock), roleSelectionBlocks(), scalesBlock(), typeClasses()]
 
     return `${blocks.join("\n\n")}\n`
 }
@@ -170,6 +253,21 @@ function themeMapping() {
 
     for (const token of ROLE_TOKENS) {
         lines.push(`    --color-role-${token}: var(--stylx-role-${token});`)
+    }
+
+    lines.push("    --font-text: var(--stylx-font-text);")
+    lines.push("    --font-code: var(--stylx-font-code);")
+
+    for (const name of Object.keys(SPACING)) {
+        lines.push(`    --spacing-${name}: var(--stylx-spacing-${name});`)
+    }
+
+    for (const name of Object.keys(RADIUS)) {
+        lines.push(`    --radius-${name}: var(--stylx-radius-${name});`)
+    }
+
+    for (const name of Object.keys(TYPE)) {
+        lines.push(`    --text-${name}: var(--stylx-text-${name}-size);`)
     }
 
     return `@theme inline {\n${lines.join("\n")}\n}`

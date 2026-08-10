@@ -1,6 +1,17 @@
 import { useState } from "react"
-import { colorRoles, Role, ThemeProvider, type ColorContrast, type SchemePreference } from "stylx-react"
+import {
+    colorRoles,
+    Role,
+    Text,
+    textVariants,
+    ThemeProvider,
+    type ColorContrast,
+    type SchemePreference
+} from "stylx-react"
 import "stylx-react/styles.css"
+
+const SPACING = ["xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"]
+const RADIUS = ["default", "double", "full"]
 
 const HUES = ["lime", "red", "orange", "yellow", "green", "teal", "blue", "purple", "pink", "gray"]
 const TINTS = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
@@ -98,6 +109,57 @@ function App() {
                             </div>
                         </Role>
                     ))}
+                </section>
+
+                <section style={{ marginTop: 32 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Typography</h2>
+                    {textVariants.map(variant => (
+                        <Text key={variant} as="p" variant={variant} style={{ marginBottom: 8 }}>
+                            {variant}
+                        </Text>
+                    ))}
+                </section>
+
+                <section style={{ marginTop: 32 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Spacing</h2>
+                    <div style={{ display: "flex", gap: 16, alignItems: "flex-end", marginBottom: 24 }}>
+                        {SPACING.map(name => (
+                            <div
+                                key={name}
+                                style={{ display: "flex", flexDirection: "column", gap: 4, alignItems: "center" }}
+                            >
+                                <div
+                                    style={{
+                                        width: `var(--stylx-spacing-${name})`,
+                                        height: `var(--stylx-spacing-${name})`,
+                                        background: "var(--stylx-role-emphasis)"
+                                    }}
+                                />
+                                <span style={{ fontSize: 11, color: "var(--stylx-fg-muted)" }}>{name}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Radius</h2>
+                    <div style={{ display: "flex", gap: 16 }}>
+                        {RADIUS.map(name => (
+                            <div
+                                key={name}
+                                style={{ display: "flex", flexDirection: "column", gap: 4, alignItems: "center" }}
+                            >
+                                <div
+                                    style={{
+                                        width: 56,
+                                        height: 56,
+                                        borderRadius: `var(--stylx-radius-${name})`,
+                                        background: "var(--stylx-role-muted)",
+                                        border: "1px solid var(--stylx-role-border-emphasis)"
+                                    }}
+                                />
+                                <span style={{ fontSize: 11, color: "var(--stylx-fg-muted)" }}>{name}</span>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </div>
         </ThemeProvider>
