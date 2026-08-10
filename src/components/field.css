@@ -1,0 +1,58 @@
+.stylx-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stylx-spacing-xxs);
+}
+
+.stylx-field-label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stylx-spacing-xxs);
+    font-family: var(--stylx-font-text);
+    font-size: var(--stylx-text-body-small-size);
+    font-weight: 700;
+    color: var(--stylx-fg-default);
+}
+
+.stylx-field-message {
+    font-family: var(--stylx-font-text);
+    font-size: var(--stylx-text-body-small-size);
+    color: var(--stylx-fg-muted);
+}
+
+.stylx-field-message[data-error="true"] {
+    color: var(--stylx-role-emphasis);
+}
+
+.stylx-textfield {
+    width: 100%;
+    font-family: var(--stylx-font-text);
+    font-size: var(--stylx-text-body-size);
+    line-height: 1.5;
+    color: var(--stylx-fg-default);
+    background: var(--stylx-bg-default);
+    border: var(--stylx-border-width-default) solid var(--stylx-border-emphasis);
+    border-radius: var(--stylx-radius-default);
+    padding-block: var(--stylx-spacing-xs);
+    padding-inline: var(--stylx-spacing-s);
+}
+
+.stylx-textfield::placeholder {
+    color: var(--stylx-fg-muted);
+}
+
+.stylx-textfield:focus-visible {
+    outline: 2px solid var(--stylx-role-border-emphasis);
+    outline-offset: 1px;
+    border-color: var(--stylx-role-border-emphasis);
+}
+
+.stylx-textfield:disabled {
+    cursor: not-allowed;
+    background: var(--stylx-bg-disabled);
+    color: var(--stylx-fg-disabled);
+}
+
+.stylx-textfield[data-invalid="true"] {
+    border-color: var(--stylx-role-border-emphasis);
+}

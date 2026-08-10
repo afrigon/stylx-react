@@ -1,14 +1,22 @@
 import { useState } from "react"
 import {
+    Button,
     colorRoles,
+    Field,
     Role,
     Text,
+    TextField,
     textVariants,
     ThemeProvider,
+    type ButtonEmphasis,
+    type ButtonScale,
     type ColorContrast,
     type SchemePreference
 } from "stylx-react"
 import "stylx-react/styles.css"
+
+const EMPHASES: ButtonEmphasis[] = ["default", "emphasis", "muted"]
+const SCALES: ButtonScale[] = ["xs", "s", "m", "l"]
 
 const SPACING = ["xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"]
 const RADIUS = ["default", "double", "full"]
@@ -159,6 +167,56 @@ function App() {
                                 <span style={{ fontSize: 11, color: "var(--stylx-fg-muted)" }}>{name}</span>
                             </div>
                         ))}
+                    </div>
+                </section>
+
+                <section style={{ marginTop: 32 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Buttons</h2>
+                    {EMPHASES.map(emphasis => (
+                        <div
+                            key={emphasis}
+                            style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}
+                        >
+                            <Text variant="body-small-bold">{emphasis}</Text>
+                            {colorRoles.map(name => (
+                                <Role key={name} role={name}>
+                                    <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+                                        <span style={{ width: 96, fontSize: 12, color: "var(--stylx-fg-muted)" }}>
+                                            {name}
+                                        </span>
+                                        {SCALES.map(scale => (
+                                            <Button key={scale} emphasis={emphasis} scale={scale}>
+                                                Button
+                                            </Button>
+                                        ))}
+                                        <Button emphasis={emphasis} loading>
+                                            Loading
+                                        </Button>
+                                        <Button emphasis={emphasis} disabled>
+                                            Disabled
+                                        </Button>
+                                        <Button emphasis={emphasis} format="capsule">
+                                            Capsule
+                                        </Button>
+                                    </div>
+                                </Role>
+                            ))}
+                        </div>
+                    ))}
+                </section>
+
+                <section style={{ marginTop: 32, maxWidth: 320 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Fields</h2>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                        <Field label="Username" hint="Your public handle">
+                            <TextField placeholder="xehos" />
+                        </Field>
+                        <Field label="Email" error="That email is already taken">
+                            <TextField placeholder="you@example.com" invalid defaultValue="taken@example.com" />
+                        </Field>
+                        <Field label="Disabled">
+                            <TextField placeholder="unavailable" disabled />
+                        </Field>
                     </div>
                 </section>
             </div>
