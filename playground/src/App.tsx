@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {
+    Badge,
     Button,
     Card,
     colorRoles,
@@ -7,6 +8,9 @@ import {
     Field,
     Role,
     Separator,
+    Skeleton,
+    SkeletonCard,
+    SkeletonParagraph,
     Stack,
     Text,
     TextField,
@@ -252,6 +256,26 @@ function App() {
                             </Card>
                         </Stack>
                     </Container>
+                </section>
+
+                <section style={{ marginTop: 32 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Badges</h2>
+                    <Stack direction="row" gap="s" wrap>
+                        {colorRoles.map(name => (
+                            <Badge key={name} role={name}>
+                                {name}
+                            </Badge>
+                        ))}
+                    </Stack>
+                </section>
+
+                <section style={{ marginTop: 32, maxWidth: 480 }}>
+                    <h2 style={{ fontSize: 16, marginBottom: 12 }}>Skeletons</h2>
+                    <Stack gap="l">
+                        <Skeleton width="40%" />
+                        <SkeletonParagraph />
+                        <SkeletonCard />
+                    </Stack>
                 </section>
             </div>
         </ThemeProvider>

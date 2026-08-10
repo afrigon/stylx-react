@@ -1,0 +1,32 @@
+.stylx-skeleton {
+    border-radius: var(--stylx-radius-double);
+    background-color: var(--stylx-bg-emphasis);
+    background-image: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.25), transparent);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: stylx-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.stylx-skeleton[data-scale="s"] {
+    height: var(--stylx-spacing-m);
+}
+
+.stylx-skeleton[data-scale="l"] {
+    height: var(--stylx-spacing-xl);
+}
+
+@keyframes stylx-skeleton-shimmer {
+    from {
+        background-position: -100% 0;
+    }
+
+    to {
+        background-position: 200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stylx-skeleton {
+        animation: none;
+    }
+}

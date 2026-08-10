@@ -1,0 +1,16 @@
+.stylx-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--stylx-font-text);
+    font-size: var(--stylx-text-overline-size);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-block: var(--stylx-spacing-xxxs);
+    padding-inline: var(--stylx-spacing-xs);
+    background: var(--stylx-role-muted);
+    color: var(--stylx-role-foreground);
+    border: var(--stylx-border-width-default) solid var(--stylx-role-border-muted);
+    border-radius: var(--stylx-radius-full);
+}
