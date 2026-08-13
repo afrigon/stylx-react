@@ -1,0 +1,4 @@
+# esbuild (via tsup) fetches a platform binary in a build script; allow it so
+# `pnpm install` can build the library.
+onlyBuiltDependencies:
+  - esbuild

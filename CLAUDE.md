@@ -1,8 +1,9 @@
 # stylx-react
 
 Reusable React + TypeScript design-system primitives — the web port of the Swift
-design system `afrigon/stylx-swift`. Consumed by application frontends (e.g.
-`afrigon/backlog`) as a **git dependency**.
+design system `afrigon/stylx-swift`. Published to **GitHub Packages**
+(`@afrigon/stylx-react`) and consumed by application frontends (e.g.
+`afrigon/backlog`). A GitHub Release triggers the `publish` workflow.
 
 ## Scope
 
@@ -47,7 +48,7 @@ design system `afrigon/stylx-swift`. Consumed by application frontends (e.g.
 | `playground/`    | Vite app that renders the primitives (`pnpm dev`)                                  |
 | `dist/`          | Build output (ESM + types + CSS); generated, not committed                         |
 | `tsup.config.ts` | Build config                                                                       |
-| `vite.config.ts` | Playground dev server; aliases `stylx-react` → `src/`                              |
+| `vite.config.ts` | Playground dev server; aliases `@afrigon/stylx-react` → `src/`                     |
 
 ## Commands
 

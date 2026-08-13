@@ -11,11 +11,11 @@ export default defineConfig({
     resolve: {
         alias: [
             {
-                find: "stylx-react/styles.css",
+                find: "@afrigon/stylx-react/styles.css",
                 replacement: fileURLToPath(new URL("./src/styles.css", import.meta.url))
             },
             {
-                find: "stylx-react",
+                find: "@afrigon/stylx-react",
                 replacement: fileURLToPath(new URL("./src/index.ts", import.meta.url))
             }
         ]
