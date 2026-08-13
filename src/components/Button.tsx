@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, type ReactNode } from "react"
 import { type ColorRoleName } from "../theme/roles"
 
-export type ButtonEmphasis = "default" | "emphasis" | "muted"
+export type ButtonEmphasis = "default" | "emphasis" | "muted" | "plain"
 export type ButtonScale = "xs" | "s" | "m" | "l"
 export type ButtonFormat = "regular" | "circle" | "square" | "capsule"
 
