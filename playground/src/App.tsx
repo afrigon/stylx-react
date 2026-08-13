@@ -23,7 +23,7 @@ import {
 } from "stylx-react"
 import "stylx-react/styles.css"
 
-const EMPHASES: ButtonEmphasis[] = ["default", "emphasis", "muted"]
+const EMPHASES: ButtonEmphasis[] = ["default", "emphasis", "muted", "plain"]
 const SCALES: ButtonScale[] = ["xs", "s", "m", "l"]
 
 const SPACING = ["xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl"]

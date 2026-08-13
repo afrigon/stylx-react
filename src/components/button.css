@@ -47,6 +47,21 @@
     border-color: var(--stylx-role-border-muted);
 }
 
+.stylx-button[data-emphasis="plain"]:not(:disabled) {
+    background: transparent;
+    color: var(--stylx-role-foreground);
+    border-color: transparent;
+}
+
+.stylx-button[data-emphasis="plain"]:not(:disabled):hover {
+    text-decoration: underline;
+}
+
+.stylx-button[data-emphasis="plain"]:disabled {
+    background: transparent;
+    border-color: transparent;
+}
+
 .stylx-button[data-scale="xs"] {
     font-size: var(--stylx-text-overline-size);
     font-weight: 700;
