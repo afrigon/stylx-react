@@ -7,13 +7,23 @@ layout); application-specific components live in the consuming app.
 
 ## Install
 
-Consumed as a git dependency (no registry publish):
+Published to **GitHub Packages**. Point the `@afrigon` scope at the registry in
+an `.npmrc`:
 
-```sh
-pnpm add github:afrigon/stylx-react
+```
+@afrigon:registry=https://npm.pkg.github.com
 ```
 
-The package builds on install (`prepare`), producing `dist/` (ESM + types + CSS).
+GitHub Packages requires authentication even for public packages, so also provide
+a token with `read:packages` (e.g. `//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}`),
+then:
+
+```sh
+pnpm add @afrigon/stylx-react
+```
+
+Releasing a new version: publish a GitHub Release — the `publish` workflow builds
+and pushes the package to GitHub Packages.
 
 ## Usage
 

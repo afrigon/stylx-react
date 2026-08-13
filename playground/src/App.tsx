@@ -20,8 +20,8 @@ import {
     type ButtonScale,
     type ColorContrast,
     type SchemePreference
-} from "stylx-react"
-import "stylx-react/styles.css"
+} from "@afrigon/stylx-react"
+import "@afrigon/stylx-react/styles.css"
 
 const EMPHASES: ButtonEmphasis[] = ["default", "emphasis", "muted", "plain"]
 const SCALES: ButtonScale[] = ["xs", "s", "m", "l"]

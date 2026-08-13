@@ -1,8 +1,15 @@
 {
-    "name": "stylx-react",
+    "name": "@afrigon/stylx-react",
     "version": "0.1.0",
     "description": "Reusable React + TypeScript design-system primitives, the web port of stylx-swift.",
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/afrigon/stylx-react.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
     "sideEffects": [
         "*.css"
     ],

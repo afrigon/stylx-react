@@ -15,8 +15,8 @@
         "skipLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "stylx-react": ["./src/index.ts"],
-            "stylx-react/styles.css": ["./src/styles.css"]
+            "@afrigon/stylx-react": ["./src/index.ts"],
+            "@afrigon/stylx-react/styles.css": ["./src/styles.css"]
         },
         "types": ["vite/client", "node"]
     },
