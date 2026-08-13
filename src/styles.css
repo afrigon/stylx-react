@@ -1,4 +1,7 @@
-:root {
-    /* Design tokens (palette, semantic colors, roles, type, scales) are declared
-       here by the color and typography layers. */
-}
+@import "./tokens.css";
+@import "./components/button.css";
+@import "./components/field.css";
+@import "./components/card.css";
+@import "./components/separator.css";
+@import "./components/badge.css";
+@import "./components/skeleton.css";

@@ -2,3 +2,5 @@
 node_modules
 dist
 *.tsbuildinfo
+src/tokens.css
+src/preset.css

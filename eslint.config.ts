@@ -6,7 +6,7 @@ import reactHooks from "eslint-plugin-react-hooks"
 import prettier from "eslint-config-prettier/flat"
 
 export default defineConfig(
-    globalIgnores(["dist"]),
+    globalIgnores(["**/dist/**", "scripts"]),
     eslint.configs.recommended,
     tseslint.configs.recommendedTypeChecked,
     react.configs.flat.recommended,
