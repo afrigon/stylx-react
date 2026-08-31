@@ -10,7 +10,7 @@ layout); application-specific components live in the consuming app.
 Consumed as a git dependency (no registry publish):
 
 ```sh
-pnpm add github:afrigon/stylx-react
+aube add github:afrigon/stylx-react
 ```
 
 The package builds on install (`prepare`), producing `dist/` (ESM + types + CSS).
@@ -33,9 +33,9 @@ variables (see the Tailwind preset). Fonts are injected by the app — install a
 ## Development
 
 ```sh
-pnpm install
-pnpm dev        # playground
-pnpm build      # dist/
-pnpm lint
-pnpm typecheck
+aube install
+aubr dev        # playground
+aubr build      # dist/
+aubr lint
+aubr typecheck
 ```
