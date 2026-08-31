@@ -30,9 +30,9 @@
         "prepare": "node scripts/generate-tokens.mjs && tsup"
     },
     "devEngines": {
-        "packageManager": {
-            "name": "pnpm",
-            "version": "^11.20.0",
+        "runtime": {
+            "name": "node",
+            "version": "^24.20.0",
             "onFail": "download"
         }
     },
