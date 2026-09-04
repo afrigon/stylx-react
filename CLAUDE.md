@@ -34,8 +34,8 @@ design system `afrigon/stylx-swift`. Consumed by application frontends (e.g.
 - React + TypeScript (strict), built with **tsup** → ESM + `.d.ts` + a CSS entry
   in `dist/`. A `prepare` script builds on install so a git-dependency consumer
   gets compiled output.
-- A **Vite playground** (`pnpm dev`) renders the primitives during development.
-- Package manager **pnpm**. Lint/format mirror the backlog frontend: ESLint 9 +
+- A **Vite playground** (`aubr dev`) renders the primitives during development.
+- Package manager **aube**. Lint/format mirror the backlog frontend: ESLint 9 +
   Prettier — 4-space, no semicolons, `printWidth` 120, `trailingComma` none,
   `arrowParens: avoid`.
 
@@ -44,17 +44,17 @@ design system `afrigon/stylx-swift`. Consumed by application frontends (e.g.
 | Path             | Purpose                                                                            |
 | ---------------- | ---------------------------------------------------------------------------------- |
 | `src/`           | Library source; `src/index.ts` is the public entry, `src/styles.css` the CSS entry |
-| `playground/`    | Vite app that renders the primitives (`pnpm dev`)                                  |
+| `playground/`    | Vite app that renders the primitives (`aubr dev`)                                  |
 | `dist/`          | Build output (ESM + types + CSS); generated, not committed                         |
 | `tsup.config.ts` | Build config                                                                       |
 | `vite.config.ts` | Playground dev server; aliases `stylx-react` → `src/`                              |
 
 ## Commands
 
-- `pnpm dev` — playground dev server
-- `pnpm build` — build `dist/`
-- `pnpm typecheck` — `tsc --noEmit`
-- `pnpm lint` · `pnpm format`
+- `aubr dev` — playground dev server
+- `aubr build` — build `dist/`
+- `aubr typecheck` — `tsc --noEmit`
+- `aubr lint` · `aubr format`
 
 ## Conventions
 

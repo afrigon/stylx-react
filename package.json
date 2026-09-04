@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "Reusable React + TypeScript design-system primitives, the web port of stylx-swift.",
     "type": "module",
+    "packageManager": "aube@2.2.0",
     "sideEffects": [
         "*.css"
     ],
@@ -30,9 +31,9 @@
         "prepare": "node scripts/generate-tokens.mjs && tsup"
     },
     "devEngines": {
-        "packageManager": {
-            "name": "pnpm",
-            "version": "^11.20.0",
+        "runtime": {
+            "name": "node",
+            "version": "^24.20.0",
             "onFail": "download"
         }
     },
